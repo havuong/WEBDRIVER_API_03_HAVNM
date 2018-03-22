@@ -1,4 +1,4 @@
-package selenium_api;
+package selenium_api.exercises;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;

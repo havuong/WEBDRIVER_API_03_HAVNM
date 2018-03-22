@@ -1,18 +1,23 @@
-package selenium_api;
+package selenium_api.exercises;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class Topic_03_Exercise {
-	WebDriver driver;
+	private WebDriver driver;
 	WebElement email;
 	WebElement edu;
 	WebElement under18;
@@ -30,10 +35,10 @@ public class Topic_03_Exercise {
 		under18 = driver.findElement(By.xpath("//*[@id='under_18']"));
 		development = driver.findElement(By.xpath("//*[@id='development']"));
 	}
+	
 
 	@Test
 	public void checkIsDisplayed() {
-		
 		Assert.assertEquals(email.isDisplayed(), true);
 		Assert.assertEquals(edu.isDisplayed(), true);
 		Assert.assertEquals(under18.isDisplayed(), true);
@@ -47,6 +52,7 @@ public class Topic_03_Exercise {
 	@Test
 	public void checkEnabledDisabled() {
 		}
+	
 	@Test
 	public void checkIsSelected() {
 		under18.click();
@@ -64,11 +70,13 @@ public class Topic_03_Exercise {
 			development.click();
 		}
 	}
+	
 	@Test
 	public void run3Browsers() {
 		}
+	
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 }
