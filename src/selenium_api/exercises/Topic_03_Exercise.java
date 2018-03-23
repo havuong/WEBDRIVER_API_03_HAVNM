@@ -12,9 +12,12 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import selenium_api.helpers.CommonMethods;
 
 public class Topic_03_Exercise {
 	private WebDriver driver;
@@ -22,10 +25,30 @@ public class Topic_03_Exercise {
 	WebElement edu;
 	WebElement under18;
 	WebElement development;
+	WebElement jobrole01;
+	WebElement slider01;
+	WebElement btnEnabled;
+	WebElement password;
+	WebElement ageRadioDisabled;
+	WebElement biography;
+	WebElement jobrole02;
+	WebElement interestsDisable;
+	WebElement slider02;
+	WebElement btnDisabled;
 	
 	@BeforeClass
-	public void beforeClass() {
-		driver = new FirefoxDriver();
+	public void initData() {
+		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
+	    driver = new ChromeDriver();
+		
+//		System.setProperty("webdriver.ie.driver", ".\\driver\\IEDriverServer.exe");
+//		driver = new InternetExplorerDriver();
+		
+//		driver = new FirefoxDriver();
+	}
+	
+	@BeforeMethod
+	public void dataForEachTC() {
 		driver.get("http://daominhdam.890m.com/");
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -34,6 +57,16 @@ public class Topic_03_Exercise {
 		edu = driver.findElement(By.xpath("//*[@id='edu']"));
 		under18 = driver.findElement(By.xpath("//*[@id='under_18']"));
 		development = driver.findElement(By.xpath("//*[@id='development']"));
+		jobrole01 = driver.findElement(By.xpath("//*[@id='job1']"));
+		slider01 = driver.findElement(By.xpath("//*[@id='slider-1']"));
+		btnEnabled = driver.findElement(By.xpath("//*[@id='button-enabled']"));
+		password = driver.findElement(By.xpath("//*[@id='password']"));
+		ageRadioDisabled = driver.findElement(By.xpath("//*[@id='radio-disabled']"));
+		biography = driver.findElement(By.xpath("//*[@id='bio']"));
+		jobrole02 = driver.findElement(By.xpath("//*[@id='job2']"));
+		interestsDisable = driver.findElement(By.xpath("//*[@id='check-disbaled']"));
+		slider02 = driver.findElement(By.xpath("//*[@id='slider-2']"));
+		btnDisabled = driver.findElement(By.xpath("//*[@id='button-disabled']"));
 	}
 	
 
@@ -51,7 +84,21 @@ public class Topic_03_Exercise {
 	
 	@Test
 	public void checkEnabledDisabled() {
-		}
+		CommonMethods.checkElementEnabled(email);
+		CommonMethods.checkElementEnabled(under18);
+		CommonMethods.checkElementEnabled(edu);
+		CommonMethods.checkElementEnabled(jobrole01);
+		CommonMethods.checkElementEnabled(development);
+		CommonMethods.checkElementEnabled(slider01);
+		CommonMethods.checkElementEnabled(btnEnabled);
+		CommonMethods.checkElementEnabled(password);
+		CommonMethods.checkElementEnabled(ageRadioDisabled);
+		CommonMethods.checkElementEnabled(biography);
+		CommonMethods.checkElementEnabled(jobrole02);
+		CommonMethods.checkElementEnabled(interestsDisable);
+		CommonMethods.checkElementEnabled(slider02);
+		CommonMethods.checkElementEnabled(btnDisabled);
+	}
 	
 	@Test
 	public void checkIsSelected() {

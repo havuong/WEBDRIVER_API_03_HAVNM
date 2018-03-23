@@ -4,10 +4,14 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import selenium_api.helpers.CommonMethods;
@@ -18,8 +22,20 @@ public class Topic_02_Exercise {
 	private String createPage;
 	
 	@BeforeClass
-	public void beforeClass() {
-		driver = new FirefoxDriver();
+	public void initData() {
+		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
+	    driver = new ChromeDriver();
+		
+//		System.setProperty("webdriver.ie.driver", ".\\driver\\IEDriverServer.exe");
+//		driver = new InternetExplorerDriver();
+		
+//		driver = new FirefoxDriver();
+	}
+	
+	@BeforeMethod
+	
+	public void dataForEachTC() {
+		
 		driver.get("http://live.guru99.com/");
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -27,6 +43,8 @@ public class Topic_02_Exercise {
 		loginPage = "http://live.guru99.com/index.php/customer/account/login/";
 		createPage = "http://live.guru99.com/index.php/customer/account/create/";
 	}
+	
+
 	@Test(priority=1,enabled=false)
 	public void verifyURLandTitle() {
 		String homepageTitle = driver.getTitle();
