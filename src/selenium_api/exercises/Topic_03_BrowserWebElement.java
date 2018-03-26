@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 
 import selenium_api.helpers.CommonMethods;
 
-public class Topic_03_Exercise {
+public class Topic_03_BrowserWebElement {
 	private WebDriver driver;
 	WebElement email;
 	WebElement edu;
@@ -120,8 +120,8 @@ public class Topic_03_Exercise {
 	
 	@Test
 	public void run3Browsers() {
-		}
-	
+	}
+
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
