@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 
 import selenium_api.helpers.CommonMethods;
 
-public class Topic_02_SetupEnvironmentLocator {
+public class Topic_02_SetupEnvironment_Locator {
 	WebDriver driver;
 	private String loginPage;
 	private String createPage;

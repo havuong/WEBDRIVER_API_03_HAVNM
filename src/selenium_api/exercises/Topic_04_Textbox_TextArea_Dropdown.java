@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import selenium_api.helpers.CommonMethods;
 
-public class Topic_04_handleTextboxTextareaDropdown {
+public class Topic_04_Textbox_TextArea_Dropdown {
 	private WebDriver driver;
 	private String email, customerid, name, birthday, address, city, state, pin, phone, password;
 
@@ -104,6 +104,6 @@ public class Topic_04_handleTextboxTextareaDropdown {
 
 	@AfterClass
 	public void afterClass() {
-		// driver.quit();
+		driver.quit();
 	}
 }

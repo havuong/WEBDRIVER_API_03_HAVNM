@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 
 import selenium_api.helpers.CommonMethods;
 
-public class Topic_03_BrowserWebElement {
+public class Topic_03_Browser_WebElement {
 	private WebDriver driver;
 	WebElement email;
 	WebElement edu;
@@ -35,24 +35,25 @@ public class Topic_03_BrowserWebElement {
 	WebElement interestsDisable;
 	WebElement slider02;
 	WebElement btnDisabled;
-	
+
 	@BeforeClass
 	public void initData() {
 		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
-	    driver = new ChromeDriver();
-		
-//		System.setProperty("webdriver.ie.driver", ".\\driver\\IEDriverServer.exe");
-//		driver = new InternetExplorerDriver();
-		
-//		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
+
+		// System.setProperty("webdriver.ie.driver",
+		// ".\\driver\\IEDriverServer.exe");
+		// driver = new InternetExplorerDriver();
+
+		// driver = new FirefoxDriver();
 	}
-	
+
 	@BeforeMethod
 	public void dataForEachTC() {
 		driver.get("http://daominhdam.890m.com/");
-		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		
+
 		email = driver.findElement(By.xpath("//*[@id='mail']"));
 		edu = driver.findElement(By.xpath("//*[@id='edu']"));
 		under18 = driver.findElement(By.xpath("//*[@id='under_18']"));
@@ -68,20 +69,19 @@ public class Topic_03_BrowserWebElement {
 		slider02 = driver.findElement(By.xpath("//*[@id='slider-2']"));
 		btnDisabled = driver.findElement(By.xpath("//*[@id='button-disabled']"));
 	}
-	
 
 	@Test
 	public void checkIsDisplayed() {
 		Assert.assertEquals(email.isDisplayed(), true);
 		Assert.assertEquals(edu.isDisplayed(), true);
 		Assert.assertEquals(under18.isDisplayed(), true);
-		
+
 		email.sendKeys("Automation Testing");
 		edu.sendKeys("Automation Testing");
-		under18.click();	
-		
+		under18.click();
+
 	}
-	
+
 	@Test
 	public void checkEnabledDisabled() {
 		CommonMethods.checkElementEnabled(email);
@@ -99,25 +99,25 @@ public class Topic_03_BrowserWebElement {
 		CommonMethods.checkElementEnabled(slider02);
 		CommonMethods.checkElementEnabled(btnDisabled);
 	}
-	
+
 	@Test
 	public void checkIsSelected() {
 		under18.click();
 		development.click();
-		
-		if (under18.isSelected()){
+
+		if (under18.isSelected()) {
 			System.out.println("Age (Under 18) is selected");
-		}else{
+		} else {
 			under18.click();
 		}
-		
-		if (development.isSelected()){
+
+		if (development.isSelected()) {
 			System.out.println("Interests (Development) is selected");
-		}else{
+		} else {
 			development.click();
 		}
 	}
-	
+
 	@Test
 	public void run3Browsers() {
 	}
