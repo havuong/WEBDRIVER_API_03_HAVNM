@@ -25,7 +25,7 @@ public class CommonMethods {
 		}
 	}
 
-	public static void switchToChildWindow(String parent) {
+	public static void switchToChildWindow(WebDriver driver, String parent) {
 		Set<String> allWindows = driver.getWindowHandles();
 		for (String runWindow : allWindows) {
 			if (!runWindow.equals(parent)) {
@@ -35,7 +35,7 @@ public class CommonMethods {
 		}
 	}
 
-	public static void switchToWindowByTitle(String title) {
+	public static void switchToWindowByTitle(WebDriver driver, String title) {
 		Set<String> allWindows = driver.getWindowHandles();
 		for (String runWindows : allWindows) {
 			driver.switchTo().window(runWindows);
@@ -46,7 +46,7 @@ public class CommonMethods {
 		}
 	}
 
-	public static boolean closeAllWithoutParentwindows(String parentWindow) {
+	public static boolean closeAllWithoutParentwindows(WebDriver driver, String parentWindow) {
 		Set<String> allWindows = driver.getWindowHandles();
 		for (String runWindows : allWindows) {
 			if (!runWindows.equals(parentWindow)) {
