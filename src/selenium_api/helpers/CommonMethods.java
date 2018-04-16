@@ -61,7 +61,7 @@ public class CommonMethods {
 		else
 			return false;
 	}
-	
+
 	public static void highlightElement(WebDriver driver, WebElement ssAddToCard) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].style.border='6px groove red'", ssAddToCard);
@@ -96,11 +96,15 @@ public class CommonMethods {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.location = '" + url + "'");
 	}
-	
-	public static void removeAttribute(WebDriver driver, WebElement element,String attribute) {
+
+	public static void removeAttribute(WebDriver driver, WebElement element, String attribute) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].removeAttribute('" + attribute + "')", element);
 	}
 
-
+	public static boolean checkAnyImageLoaded(WebDriver driver, WebElement image) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return (boolean) js.executeScript("return arguments[0].complete && "
+				+ "typeof arguments[0].naturalWidth != 'underined' && arguments[0].naturalWidth > 0", image);
+	}
 }
