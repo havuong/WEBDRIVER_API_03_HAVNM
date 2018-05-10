@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="RUN MULTI-BROWSER" parallel="false">
+	<test name="run on CHROME browser">
+	<parameter name="browser" value="chrome" />
+	<parameter name="username" value="mngr131812" />
+	<parameter name="password" value="vavAtap" />
+		<classes>
+			<class name="selenium_online_03_testng.TestNG_Parameter_Multibrowsers" />
+		</classes>
+	</test>
+	
+	<test name="run on FIREFOX browser">
+	<parameter name="browser" value="firefox" />
+	<parameter name="username" value="mngr131814" />
+	<parameter name="password" value="meduhAv" />
+		<classes>
+			<class name="selenium_online_03_testng.TestNG_Parameter_Multibrowsers" />
+		</classes>
+	</test>
+	
+	<test name="run on IE browser">
+	<parameter name="browser" value="ie" />
+	<parameter name="username" value="mngr131815" />
+	<parameter name="password" value="UvEnEgY" />
+		<classes>
+			<class name="selenium_online_03_testng.TestNG_Parameter_Multibrowsers" />
+		</classes>
+	</test>
+</suite>
