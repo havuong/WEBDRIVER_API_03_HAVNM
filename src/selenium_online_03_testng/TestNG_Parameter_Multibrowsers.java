@@ -14,6 +14,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import selenium_api.helpers.CommonMethods;
+
 public class TestNG_Parameter_Multibrowsers {
 	WebDriver driver;
 
@@ -38,9 +40,10 @@ public class TestNG_Parameter_Multibrowsers {
 	@Parameters({ "username", "password" })
 	@Test()
 	public void Customer_01_LoginToApplication(String username, String pass) {
-		driver.findElement(By.xpath("//imput[@name='uid']")).sendKeys(username);
-		driver.findElement(By.xpath("//imput[@name='password']")).sendKeys(pass);
-		driver.findElement(By.xpath("//imput[@name='btnLogin']")).click();
+		driver.findElement(By.xpath("//input[@name='uid']")).sendKeys(username);
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys(pass);
+		WebElement clickBtn = driver.findElement(By.xpath("//input[@name='btnLogin']"));
+		CommonMethods.clickForElement(driver, clickBtn);
 		WebElement welcomeMsg = driver.findElement(By.xpath("//marquee[@class='heading3']"));
 		Assert.assertTrue(welcomeMsg.isDisplayed());
 	}

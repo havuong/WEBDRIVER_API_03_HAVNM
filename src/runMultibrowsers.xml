@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="RUN MULTI-BROWSER" parallel="false">
+<suite name="RUN MULTI-BROWSER" parallel="tests" thread-count="3">
 	<test name="run on CHROME browser">
 	<parameter name="browser" value="chrome" />
 	<parameter name="username" value="mngr131812" />
